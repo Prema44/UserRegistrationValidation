@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 			
-		public static void validateFirstName(String firstName)
+		public static void validateName(String firstName)
 		{
 			String regex = "^[A-Z]{1}[a-zA-z]{2,}";
 			Pattern pattern = Pattern.compile(regex);
@@ -21,12 +21,18 @@ public class UserRegistration {
 		}
 		public static void main(String[] args) {
 			
-			System.out.println("Welcome to User Registration Validation");
 			String firstName = "";
+			String lastName = "";
+			
 			Scanner input = new Scanner(System.in);
+			
 			System.out.println("Enter the first name");
 			firstName = input.nextLine();
-			validateFirstName(firstName);	
+			validateName(firstName);//validation of first name	
+			
+			System.out.println("Enter the last name");
+			lastName = input.nextLine();
+			validateName(lastName);//validation of last name	
 		}
 	}
 
