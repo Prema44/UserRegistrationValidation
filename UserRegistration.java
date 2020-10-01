@@ -89,6 +89,6 @@ public class UserRegistration {
 			String password = input.nextLine();
 			validatePassword(password); // Validation of password
 		}	
-		}
+	}
 
 
