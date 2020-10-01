@@ -20,17 +20,16 @@ public class UserRegistration {
 	                }
 		}
 		
-		public static String validateEmail(String Email) {
-			String expression = "^[a-z]+[.|+_-]?[a-z0-9]+[@][a-z0-9]{1,}[.][a-z]{2,}[.]{0,1}[a-z]*$";; // Pattern for Email
+		public static void validateEmail(String Email) {
+			String expression = "(abc[.][A-Za-z]+@bl[.]co[.][A-Za-z]{2,})$"; // Pattern for Email
 			Pattern pattern = Pattern.compile(expression);
 			Matcher match = pattern.matcher(Email);
 			if(match.find()) {
-				return "valid";
+				System.out.println("Email is Valid");
 			}
 			else {
-			return "invalid";
+			System.out.println("Email is invalid");
 			}
-			
 			
 		}	
 		
@@ -48,7 +47,7 @@ public class UserRegistration {
 		
 		public static void validatePassword(String password)
 	    {
-	        String regex="(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[a-zA-Z0-9@_#$%^&*]{8,}$";
+	        String regex="^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[a-zA-Z0-9@_-#$%^&*]{8,}$";
 	        Pattern pattern=Pattern.compile(regex);
 	        Matcher matcher=pattern.matcher(password);
 
@@ -59,23 +58,6 @@ public class UserRegistration {
 	            System.out.println(password+" is not valid");
 	        }
 	    }
-		
-		private void verifyEmail() {
-			System.out.println("abc@gmail.com" + " is " +validateEmail("abc@gmail.com"));
-			System.out.println("abc-100@yahoo.com" + " is " +validateEmail("abc-100@yahoo.com"));
-			System.out.println("abc.100@yahoo.com" + " is " +validateEmail("abc.100@yahoo.com"));
-			System.out.println("abc-100@abc.net" + " is " +validateEmail("abc-100@abc.net"));
-			System.out.println("abc.100@abc.com.au" + " is " +validateEmail("abc.100@abc.com.au"));
-			System.out.println("abc@gmail.com.com" + " is " +validateEmail("abc@gmail.com.com"));
-			System.out.println("abc@.com.my" + " is " +validateEmail("abc@.com.my"));
-			System.out.println("abc123@gmail.a" + " is " +validateEmail("abc123@gmail.a"));
-			System.out.println("abc123@.com" + " is " +validateEmail("abc123@.com"));
-			System.out.println(".abc@abc.com" + " is " +validateEmail(".abc@abc.com"));
-			System.out.println("abc()*@gmail.com" + " is " +validateEmail("abc()*@gmail.com"));
-			System.out.println("abc@%*.com" + " is " +validateEmail("abc@%*.com"));
-			System.out.println("abc..2002@gmail.com" + " is " +validateEmail("abc..2002@gmail.com"));
-			System.out.println("abc@abc@gmail.com" + " is " +validateEmail("abc@abc@gmail.com"));
-		}
 			
 			
 		public static void main(String[] args) {
@@ -84,8 +66,6 @@ public class UserRegistration {
 			String lastName = "";
 			String email = "";
 			String mobileNumber = "";
-			
-			UserRegistration user = new UserRegistration();
 			
 			Scanner input = new Scanner(System.in);
 			
@@ -108,12 +88,7 @@ public class UserRegistration {
 			System.out.println("Enter the password");
 			String password = input.nextLine();
 			validatePassword(password); // Validation of password
-			
-			user.verifyEmail();
-			
-			
 		}	
 		}
-	
 
 
